@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inventory Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #ecf0f1;
+            padding: 30px;
+        }
+        .container {
+            background: white;
+            max-width: 700px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #bdc3c7;
+        }
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #bdc3c7;
+            text-align: center;
+        }
+        th {
+            background: #3498db;
+            color: white;
+        }
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>📊 Inventory Summary</h2>
+    <table>
+        <tr><th>Product</th><th>SKU</th><th>Available Stock</th></tr>
+        {% for item in inventory %}
+        <tr>
+            <td>{{ item.product }}</td>
+            <td>{{ item.sku }}</td>
+            <td>{{ item.available_stock }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a class="back" href="/">⬅️ Back to Dashboard</a>
+</div>
+</body>
+</html>

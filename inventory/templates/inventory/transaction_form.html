@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Transaction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #ecf0f1;
+            padding: 30px;
+        }
+        .container {
+            background: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #bdc3c7;
+        }
+        h2 {
+            text-align: center;
+            color: #34495e;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #bdc3c7;
+        }
+        .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+        }
+        .btn:hover {
+            background: #2ecc71;
+        }
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Create Stock Transaction</h2>
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        <label>Transaction Type:</label>
+        <select name="transaction_type">
+            <option value="IN">IN</option>
+            <option value="OUT">OUT</option>
+        </select>
+
+        <label>Reference No:</label>
+        <input type="text" name="reference_number" required>
+
+        <label>Product SKU:</label>
+        <input type="text" name="sku" required>
+
+        <label>Quantity:</label>
+        <input type="number" name="quantity" required>
+
+        <button class="btn" type="submit">Submit</button>
+    </form>
+    <a class="back" href="/">⬅️ Back to Dashboard</a>
+</div>
+</body>
+</html>

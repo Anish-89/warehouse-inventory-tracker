@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Warehouse Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f6fa;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #2f3640;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .card {
+            background: white;
+            border: 1px solid #dcdde1;
+            padding: 30px;
+            width: 250px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        a {
+            text-decoration: none;
+            color: #0984e3;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>📦 Warehouse Inventory Dashboard</h1>
+
+    <div class="card-container">
+        <div class="card">
+            <h3>Add Transaction</h3>
+            <p><a href="/transaction/">Create IN / OUT</a></p>
+        </div>
+        <div class="card">
+            <h3>View Inventory</h3>
+            <p><a href="/inventory/">Check Stock Levels</a></p>
+        </div>
+        <div class="card">
+            <h3>Manage Products</h3>
+            <p><a href="/admin/inventory/product/">Go to Products</a></p>
+        </div>
+        <div class="card">
+            <h3>Admin Panel</h3>
+            <p><a href="/admin/">Go to Admin Site</a></p>
+        </div>
+    </div>
+</body>
+</html>
