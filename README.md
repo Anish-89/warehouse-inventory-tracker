@@ -60,12 +60,9 @@ python manage.py createsuperuser
 
 Use this account to log in at:  
 `http://127.0.0.1:8000/admin` or your deployed admin URL.
-<<<<<<< HEAD
 Admin Username: Admin
 Password : anishjha22
-=======
 
->>>>>>> 79c6a44 (Add project README with live demo link)
 ---
 
 ## 🧪 Sample Use Case
