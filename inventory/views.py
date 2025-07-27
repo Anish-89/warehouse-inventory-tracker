@@ -42,12 +42,18 @@ def transaction_form(request):
         sku = request.POST['sku']
         qty = int(request.POST['quantity'])
 
+        # ✅ Reject zero or negative quantity
+        if qty <= 0:
+            return render(request, 'inventory/transaction_form.html', {
+                'error': '❌ Quantity must be greater than 0.'
+            })
+
         try:
             product = Product.objects.get(sku=sku)
         except Product.DoesNotExist:
             return render(request, 'inventory/transaction_form.html', {'error': 'Invalid SKU'})
 
-        # Check for OUT transaction and stock sufficiency
+        # ✅ Validate stock availability for OUT transactions
         if t_type == 'OUT':
             stock_in = StockDetail.objects.filter(product=product, transaction__transaction_type='IN').aggregate(total=Sum('quantity'))['total'] or 0
             stock_out = StockDetail.objects.filter(product=product, transaction__transaction_type='OUT').aggregate(total=Sum('quantity'))['total'] or 0
